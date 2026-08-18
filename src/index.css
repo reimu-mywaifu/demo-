@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+/* ===== Morandi Color System (Custom Theme) ===== */
+@theme {
+  --color-morandi-green: #A8B5A2;
+  --color-morandi-green-dark: #8A9B83;
+  --color-morandi-green-light: #C5CEBC;
+  --color-morandi-blue: #8EA4B5;
+  --color-morandi-blue-dark: #6E8A9E;
+  --color-morandi-blue-light: #ADBFCC;
+  --color-morandi-cream: #F5F0EB;
+  --color-morandi-tea: #C8B8A9;
+  --color-morandi-tea-dark: #B0A090;
+  --color-morandi-tea-light: #DDD2C6;
+  --color-morandi-pink: #C9ADA7;
+  --color-morandi-pink-light: #DECCCA;
+  --color-morandi-dark: #4A4A4A;
+  --color-morandi-dark-soft: #6B6B6B;
+  --color-morandi-light: #FAFAF7;
+  --color-morandi-white: #FFFFFF;
+  --color-morandi-border: #E8E3DE;
+  --color-morandi-overlay: rgba(74, 74, 74, 0.6);
+
+  --font-sans: 'Inter', 'Noto Sans TC', 'Helvetica Neue', sans-serif;
+}
+
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-morandi-dark);
+  background-color: var(--color-morandi-light);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-morandi-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-morandi-tea);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-morandi-tea-dark);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out both;
+}
+
+/* Staggered animation delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ===== Card Hover Effects ===== */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(74, 74, 74, 0.12);
+}
+
+/* ===== Glass Effect ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Tag Styles ===== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--color-morandi-cream);
+  color: var(--color-morandi-dark-soft);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.tag:hover {
+  background: var(--color-morandi-green-light);
+  color: var(--color-morandi-dark);
+}
+
+/* ===== Button Styles ===== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--color-morandi-green);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary:hover {
+  background: var(--color-morandi-green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(168, 181, 162, 0.4);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: transparent;
+  color: var(--color-morandi-green);
+  border: 2px solid var(--color-morandi-green);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-secondary:hover {
+  background: var(--color-morandi-green);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== Image Carousel ===== */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-slide {
+  min-width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+}
+.carousel-dot.active {
+  background: white;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ===== Section Containers ===== */
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+@media (max-width: 768px) {
+  .section-container {
+    padding: 48px 16px;
+  }
+}
+
+/* ===== Form Inputs ===== */
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--color-morandi-border);
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-morandi-dark);
+  background: white;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+.input-field:focus {
+  border-color: var(--color-morandi-green);
+  box-shadow: 0 0 0 3px rgba(168, 181, 162, 0.2);
+}
+.input-field::placeholder {
+  color: var(--color-morandi-tea);
+}
+
+/* ===== Select Styles ===== */
+.select-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--color-morandi-border);
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-morandi-dark);
+  background: white;
+  transition: border-color 0.3s;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236B6B6B' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+.select-field:focus {
+  border-color: var(--color-morandi-green);
+}
