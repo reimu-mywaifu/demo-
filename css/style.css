@@ -1,0 +1,686 @@
+/* ===================================================================
+   style.css — 馬克租屋有限公司 Custom Morandi Theme
+   Built on top of Bootstrap 5, all custom overrides below.
+   =================================================================== */
+
+/* ===== Google Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+/* ===== CSS Custom Properties (Morandi Color Palette) ===== */
+:root {
+  --m-green: #A8B5A2;
+  --m-green-dark: #8A9B83;
+  --m-green-light: #C5CEBC;
+  --m-green-10: rgba(168,181,162,0.10);
+  --m-green-20: rgba(168,181,162,0.20);
+  --m-blue: #8EA4B5;
+  --m-blue-dark: #6E8A9E;
+  --m-blue-light: #ADBFCC;
+  --m-cream: #F5F0EB;
+  --m-tea: #C8B8A9;
+  --m-tea-dark: #B0A090;
+  --m-tea-light: #DDD2C6;
+  --m-pink: #C9ADA7;
+  --m-pink-light: #DECCCA;
+  --m-dark: #4A4A4A;
+  --m-dark-soft: #6B6B6B;
+  --m-light: #FAFAF7;
+  --m-white: #FFFFFF;
+  --m-border: #E8E3DE;
+  --m-overlay: rgba(74,74,74,0.55);
+  --m-shadow: 0 2px 16px rgba(74,74,74,0.07);
+  --m-shadow-hover: 0 16px 40px rgba(74,74,74,0.13);
+  --m-radius: 16px;
+  --m-radius-sm: 10px;
+  --m-radius-lg: 24px;
+  --font-family: 'Inter','Noto Sans TC','Helvetica Neue',sans-serif;
+}
+
+/* ===== Global ===== */
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-family);
+  color: var(--m-dark);
+  background: var(--m-light);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--m-green-dark); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--m-green); }
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: var(--m-cream); }
+::-webkit-scrollbar-thumb { background: var(--m-tea); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--m-tea-dark); }
+
+/* ===== Selection ===== */
+::selection { background: var(--m-green-20); color: var(--m-dark); }
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar-morandi {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--m-border);
+  padding: .6rem 0;
+  transition: box-shadow .3s, background .3s;
+}
+.navbar-morandi.scrolled {
+  box-shadow: 0 2px 20px rgba(74,74,74,0.08);
+  background: rgba(255,255,255,0.95);
+}
+.navbar-morandi .navbar-brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--m-dark);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.brand-icon {
+  width: 38px; height: 38px;
+  background: var(--m-green);
+  border-radius: var(--m-radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 1.1rem;
+  transition: transform .3s;
+}
+.navbar-morandi .navbar-brand:hover .brand-icon { transform: scale(1.1); }
+.navbar-morandi .nav-link {
+  color: var(--m-dark-soft);
+  font-weight: 500;
+  font-size: .9rem;
+  padding: .5rem 1rem !important;
+  border-radius: var(--m-radius-sm);
+  transition: all .2s;
+}
+.navbar-morandi .nav-link:hover,
+.navbar-morandi .nav-link.active {
+  color: var(--m-green-dark);
+  background: var(--m-green-10);
+}
+.social-link {
+  color: var(--m-dark-soft);
+  font-size: 1.2rem;
+  transition: color .2s, transform .2s;
+  display: inline-flex;
+}
+.social-link:hover { transform: scale(1.15); }
+.social-link.line:hover { color: #06C755; }
+.social-link.ig:hover { color: #E1306C; }
+.social-link.fb:hover { color: #1877F2; }
+
+/* Mobile offcanvas */
+.offcanvas-morandi { background: var(--m-light); }
+.offcanvas-morandi .nav-link { padding: .75rem 1rem !important; font-size: 1rem; }
+
+/* ============================================================
+   HERO CAROUSEL
+   ============================================================ */
+.hero-section { position: relative; }
+.hero-section .carousel-item { height: 85vh; min-height: 480px; max-height: 780px; }
+.hero-section .carousel-item img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(74,74,74,.65) 0%, rgba(74,74,74,.25) 40%, transparent 100%);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+}
+.hero-overlay h1 {
+  font-size: clamp(2rem,5vw,3.5rem);
+  font-weight: 700; color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,.3);
+  margin-bottom: .75rem;
+}
+.hero-overlay p {
+  font-size: clamp(1rem,2.5vw,1.3rem);
+  color: rgba(255,255,255,.9);
+  text-shadow: 0 1px 10px rgba(0,0,0,.25);
+}
+.hero-section .carousel-indicators [data-bs-target] {
+  width: 10px; height: 10px; border-radius: 50%;
+  border: none; opacity: .5; transition: all .3s;
+}
+.hero-section .carousel-indicators .active {
+  opacity: 1; width: 28px; border-radius: 5px;
+}
+.hero-section .carousel-control-prev-icon,
+.hero-section .carousel-control-next-icon {
+  width: 2.5rem; height: 2.5rem;
+  background-color: rgba(255,255,255,.25);
+  border-radius: 50%; backdrop-filter: blur(6px);
+  background-size: 50%;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-morandi {
+  background: var(--m-green);
+  color: #fff;
+  border: none;
+  border-radius: var(--m-radius-sm);
+  font-weight: 600;
+  padding: .7rem 1.8rem;
+  transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+.btn-morandi:hover {
+  background: var(--m-green-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168,181,162,.4);
+}
+.btn-morandi-outline {
+  background: transparent;
+  color: var(--m-green);
+  border: 2px solid var(--m-green);
+  border-radius: var(--m-radius-sm);
+  font-weight: 600;
+  padding: .65rem 1.8rem;
+  transition: all .3s;
+}
+.btn-morandi-outline:hover {
+  background: var(--m-green);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.btn-morandi-white {
+  background: #fff;
+  color: var(--m-green-dark);
+  border: 2px solid rgba(255,255,255,.8);
+  border-radius: var(--m-radius-sm);
+  font-weight: 600;
+  padding: .7rem 1.8rem;
+  transition: all .3s;
+}
+.btn-morandi-white:hover {
+  background: var(--m-cream);
+  color: var(--m-green-dark);
+  transform: translateY(-2px);
+}
+.btn-line {
+  background: #06C755; color: #fff; border: none;
+  border-radius: var(--m-radius-sm); font-weight: 600;
+  padding: .7rem 1.8rem; transition: all .3s;
+}
+.btn-line:hover {
+  background: #05b54d; color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6,199,85,.3);
+}
+
+/* ============================================================
+   CARDS (Airbnb Style)
+   ============================================================ */
+.card-morandi {
+  border: none;
+  border-radius: var(--m-radius);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--m-shadow);
+  transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s;
+  cursor: pointer;
+}
+.card-morandi:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--m-shadow-hover);
+}
+.card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/11;
+  background: var(--m-cream);
+}
+.card-img-wrapper img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+.card-morandi:hover .card-img-wrapper img { transform: scale(1.05); }
+
+.card-price-badge {
+  position: absolute; top: .75rem; right: .75rem;
+  background: rgba(168,181,162,.92);
+  backdrop-filter: blur(6px);
+  color: #fff; padding: .3rem .85rem;
+  border-radius: var(--m-radius-sm);
+  font-weight: 700; font-size: .88rem;
+}
+.card-type-badge {
+  position: absolute; top: .75rem; left: .75rem;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(6px);
+  color: var(--m-dark); padding: .25rem .75rem;
+  border-radius: var(--m-radius-sm);
+  font-weight: 500; font-size: .78rem;
+}
+.card-morandi .card-body { padding: 1.2rem; }
+.card-morandi .card-title {
+  font-weight: 700; font-size: 1rem;
+  margin-bottom: .5rem; color: var(--m-dark);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  transition: color .2s;
+}
+.card-morandi:hover .card-title { color: var(--m-green-dark); }
+.card-location { color: var(--m-dark-soft); font-size: .85rem; margin-bottom: .6rem; }
+
+/* ===== Tags / Badges ===== */
+.tag-morandi {
+  display: inline-block;
+  padding: .2rem .7rem;
+  border-radius: 99px;
+  font-size: .72rem;
+  font-weight: 500;
+  background: var(--m-cream);
+  color: var(--m-dark-soft);
+  margin: 0 .25rem .35rem 0;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.tag-morandi:hover { background: var(--m-green-light); color: var(--m-dark); }
+.tag-morandi.active { background: var(--m-green); color: #fff; }
+
+/* ===== Card Carousel Dots ===== */
+.card-dots {
+  position: absolute; bottom: .6rem;
+  left: 50%; transform: translateX(-50%);
+  display: flex; gap: 5px;
+}
+.card-dots span {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,.5); transition: all .3s;
+  cursor: pointer;
+}
+.card-dots span.active { background: #fff; width: 20px; border-radius: 4px; }
+
+/* Card carousel arrows */
+.card-carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(255,255,255,.8); border: none;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .3s, background .2s;
+  z-index: 2; font-size: .8rem; color: var(--m-dark);
+}
+.card-morandi:hover .card-carousel-btn { opacity: 1; }
+.card-carousel-btn:hover { background: #fff; }
+.card-carousel-btn.prev { left: .5rem; }
+.card-carousel-btn.next { right: .5rem; }
+
+/* ============================================================
+   SECTION STYLES
+   ============================================================ */
+.section-morandi { padding: 5rem 0; }
+.section-morandi.bg-cream { background: var(--m-cream); }
+.section-morandi.bg-green { background: var(--m-green); }
+.section-label {
+  font-size: .85rem; font-weight: 600;
+  color: var(--m-green); margin-bottom: .3rem;
+}
+.section-title {
+  font-size: clamp(1.6rem,3vw,2.2rem);
+  font-weight: 700; color: var(--m-dark);
+  margin-bottom: .5rem;
+}
+
+/* ============================================================
+   FILTER BAR
+   ============================================================ */
+.filter-bar {
+  background: #fff;
+  border-radius: var(--m-radius);
+  padding: 1.5rem;
+  box-shadow: var(--m-shadow);
+  border: 1px solid var(--m-border);
+}
+.filter-bar .form-control,
+.filter-bar .form-select {
+  border: 2px solid var(--m-border);
+  border-radius: var(--m-radius-sm);
+  padding: .65rem 1rem;
+  font-size: .9rem;
+  color: var(--m-dark);
+  transition: border-color .3s, box-shadow .3s;
+}
+.filter-bar .form-control:focus,
+.filter-bar .form-select:focus {
+  border-color: var(--m-green);
+  box-shadow: 0 0 0 3px var(--m-green-10);
+}
+.filter-bar .form-control::placeholder { color: var(--m-tea); }
+
+/* ============================================================
+   FORM CONTROLS (Global Override)
+   ============================================================ */
+.form-morandi .form-control,
+.form-morandi .form-select {
+  border: 2px solid var(--m-border);
+  border-radius: var(--m-radius-sm);
+  padding: .7rem 1rem;
+  font-size: .9rem;
+  color: var(--m-dark);
+  font-family: var(--font-family);
+  transition: border-color .3s, box-shadow .3s;
+}
+.form-morandi .form-control:focus,
+.form-morandi .form-select:focus {
+  border-color: var(--m-green);
+  box-shadow: 0 0 0 3px var(--m-green-10);
+}
+.form-morandi label {
+  font-weight: 500; font-size: .88rem;
+  color: var(--m-dark); margin-bottom: .35rem;
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-morandi .modal-content {
+  border: none; border-radius: var(--m-radius-lg);
+  overflow: hidden;
+}
+.modal-morandi .modal-header {
+  border-bottom: 1px solid var(--m-border);
+  padding: 1rem 1.5rem;
+}
+.modal-morandi .modal-body { padding: 0; }
+.modal-morandi .btn-close:focus { box-shadow: none; }
+
+.modal-gallery { position: relative; aspect-ratio: 16/9; background: var(--m-cream); overflow: hidden; }
+.modal-gallery img { width: 100%; height: 100%; object-fit: cover; }
+.modal-detail-section { padding: 1.5rem; }
+
+.equip-item {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .88rem; color: var(--m-dark-soft);
+  padding: .3rem 0;
+}
+.equip-item i { color: var(--m-green); }
+
+.detail-stat {
+  text-align: center; padding: 1rem;
+  background: var(--m-cream); border-radius: var(--m-radius-sm);
+}
+.detail-stat .stat-value { font-weight: 700; color: var(--m-dark); font-size: 1.05rem; }
+.detail-stat .stat-label { font-size: .75rem; color: var(--m-dark-soft); }
+.detail-stat i { color: var(--m-green); margin-bottom: .25rem; }
+
+/* ============================================================
+   FEATURE CARDS
+   ============================================================ */
+.feature-card {
+  background: #fff;
+  border-radius: var(--m-radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--m-shadow);
+  transition: transform .3s, box-shadow .3s;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--m-shadow-hover);
+}
+.feature-icon {
+  width: 56px; height: 56px;
+  background: var(--m-green-10);
+  border-radius: var(--m-radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem; color: var(--m-green);
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonial-card {
+  background: #fff;
+  border-radius: var(--m-radius);
+  padding: 1.5rem;
+  box-shadow: var(--m-shadow);
+  position: relative;
+}
+.testimonial-card .quote-icon {
+  position: absolute; top: 1rem; right: 1rem;
+  font-size: 2rem; color: var(--m-cream);
+}
+.testimonial-avatar {
+  width: 48px; height: 48px;
+  background: var(--m-cream);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* ============================================================
+   BLOG CARDS
+   ============================================================ */
+.blog-card {
+  border: none;
+  border-radius: var(--m-radius);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--m-shadow);
+  transition: transform .35s, box-shadow .35s;
+}
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--m-shadow-hover);
+}
+.blog-card .card-img-top {
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  transition: transform .5s;
+}
+.blog-card:hover .card-img-top { transform: scale(1.05); }
+.blog-card .card-body { padding: 1.25rem; }
+.blog-card .read-more {
+  color: var(--m-green); font-weight: 600; font-size: .88rem;
+  display: inline-flex; align-items: center; gap: .3rem;
+  transition: gap .3s;
+}
+.blog-card:hover .read-more { gap: .6rem; }
+
+/* ============================================================
+   PAGE HEADERS
+   ============================================================ */
+.page-header {
+  background: var(--m-cream);
+  padding: 3.5rem 0 2.5rem;
+  text-align: center;
+}
+.page-header-icon {
+  width: 56px; height: 56px;
+  background: var(--m-green-10);
+  border-radius: var(--m-radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem; font-size: 1.5rem; color: var(--m-green);
+}
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.timeline-item { display: flex; gap: 1rem; margin-bottom: 2rem; }
+.timeline-dot {
+  width: 48px; height: 48px;
+  background: var(--m-green-10);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; flex-shrink: 0;
+}
+.timeline-line {
+  width: 2px; background: var(--m-border);
+  margin: .5rem auto 0; flex-grow: 1;
+}
+.timeline-year { font-weight: 700; color: var(--m-green); font-size: .88rem; }
+.timeline-event { font-weight: 500; color: var(--m-dark); }
+
+.team-card {
+  background: #fff;
+  border-radius: var(--m-radius);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--m-shadow);
+  transition: transform .3s, box-shadow .3s;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--m-shadow-hover);
+}
+.team-avatar {
+  width: 72px; height: 72px;
+  background: var(--m-cream);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto .75rem; font-size: 2.2rem;
+}
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-card {
+  display: flex; align-items: center; gap: .75rem;
+  padding: .85rem; border-radius: var(--m-radius-sm);
+  background: var(--m-cream);
+  transition: background .2s;
+  text-decoration: none; color: var(--m-dark);
+}
+.contact-card:hover { background: var(--m-green-10); color: var(--m-dark); }
+.contact-card-icon {
+  width: 42px; height: 42px;
+  background: var(--m-green-10);
+  border-radius: var(--m-radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--m-green); font-size: 1.1rem;
+  transition: all .2s;
+}
+.contact-card:hover .contact-card-icon {
+  background: var(--m-green); color: #fff;
+}
+.hours-row {
+  display: flex; justify-content: space-between;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--m-border);
+  font-size: .9rem;
+}
+.hours-row:last-child { border-bottom: none; }
+
+/* ============================================================
+   BLOG POST PAGE
+   ============================================================ */
+.blog-hero { position: relative; height: 45vh; min-height: 280px; max-height: 480px; overflow: hidden; }
+.blog-hero img { width: 100%; height: 100%; object-fit: cover; }
+.blog-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(74,74,74,.6) 0%, transparent 60%);
+  display: flex; align-items: flex-end;
+  padding: 2rem;
+}
+.blog-content h4 {
+  color: var(--m-dark); font-weight: 700;
+  margin-top: 1.5rem; margin-bottom: .5rem;
+}
+.blog-content p { color: var(--m-dark-soft); }
+.blog-content .lead {
+  font-size: 1.05rem; font-weight: 500;
+  color: var(--m-dark);
+  border-left: 4px solid var(--m-green);
+  padding: .75rem 1rem;
+  background: rgba(168,181,162,.06);
+  border-radius: 0 var(--m-radius-sm) var(--m-radius-sm) 0;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+.cta-section {
+  background: var(--m-green);
+  padding: 4rem 0;
+  text-align: center;
+}
+.cta-section h2 { color: #fff; font-weight: 700; }
+.cta-section p { color: rgba(255,255,255,.8); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer-morandi {
+  background: var(--m-dark);
+  color: var(--m-cream);
+  padding: 4rem 0 0;
+}
+.footer-morandi h6 {
+  font-weight: 600; color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .8rem; margin-bottom: 1rem;
+}
+.footer-morandi a { color: var(--m-tea-light); transition: color .2s; }
+.footer-morandi a:hover { color: #fff; }
+.footer-morandi ul { list-style: none; padding: 0; }
+.footer-morandi ul li { margin-bottom: .5rem; font-size: .88rem; }
+.footer-social-btn {
+  width: 40px; height: 40px;
+  border-radius: var(--m-radius-sm);
+  background: rgba(255,255,255,.1);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--m-cream); font-size: 1rem;
+  transition: background .2s;
+  margin-right: .5rem;
+}
+.footer-social-btn:hover { background: var(--m-green); color: #fff; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 1.5rem 0; margin-top: 3rem;
+  font-size: .78rem; color: var(--m-tea);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeInUp { from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0}to{opacity:1} }
+.fade-in-up { animation: fadeInUp .6s ease-out both; }
+.fade-in { animation: fadeIn .4s ease-out both; }
+
+/* Stagger delays */
+[data-aos] { transition-timing-function: cubic-bezier(.4,0,.2,1) !important; }
+
+/* ============================================================
+   RESPONSIVE FINE-TUNING
+   ============================================================ */
+@media(max-width:768px) {
+  .section-morandi { padding: 3rem 0; }
+  .hero-section .carousel-item { height: 70vh; min-height: 400px; }
+  .card-morandi .card-body { padding: 1rem; }
+  .filter-bar { padding: 1rem; }
+  .page-header { padding: 2.5rem 0 2rem; }
+  .blog-hero { height: 35vh; }
+}
+@media(max-width:576px) {
+  .hero-overlay h1 { font-size: 1.6rem; }
+  .hero-overlay p { font-size: .95rem; }
+}
+
+/* ============================================================
+   MISC UTILITIES
+   ============================================================ */
+.text-morandi-green { color: var(--m-green) !important; }
+.text-morandi-dark { color: var(--m-dark) !important; }
+.text-morandi-soft { color: var(--m-dark-soft) !important; }
+.bg-morandi-cream { background: var(--m-cream) !important; }
+.bg-morandi-green-10 { background: var(--m-green-10) !important; }
+.rounded-morandi { border-radius: var(--m-radius) !important; }
+.rounded-morandi-lg { border-radius: var(--m-radius-lg) !important; }
+.shadow-morandi { box-shadow: var(--m-shadow) !important; }
+.border-morandi { border: 1px solid var(--m-border) !important; }
+
+/* Success animation */
+.success-check { animation: fadeIn .5s ease-out; }
