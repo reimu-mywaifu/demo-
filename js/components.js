@@ -49,7 +49,7 @@ function renderNavbar() {
       </div>
 
       <!-- Mobile Offcanvas -->
-      <div class="offcanvas offcanvas-end offcanvas-morandi" tabindex="-1" id="mobileMenu">
+      <div class="offcanvas offcanvas-end offcanvas-morandi d-lg-none" tabindex="-1" id="mobileMenu">
         <div class="offcanvas-header">
           <a class="navbar-brand" href="index.html">
             <div class="brand-icon">M</div>
