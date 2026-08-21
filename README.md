@@ -1,4 +1,4 @@
-# 馬克租屋有限公司 — 租屋網站 Demo
+# 方結租屋有限公司 — 租屋網站 Demo
 
 > 🏠 專為學生與小資族打造的溫馨租屋平台  
 > **Live Demo**: 直接用瀏覽器開啟 `index.html` 即可瀏覽
@@ -134,7 +134,7 @@ demo/
    ```bash
    git init
    git add .
-   git commit -m "Initial commit: 馬克租屋網站"
+   git commit -m "Initial commit: 方結租屋網站"
    ```
 
 2. **推送到 GitHub**
@@ -278,6 +278,6 @@ demo/
 ---
 
 <p align="center">
-  Made with ❤️ by 馬克租屋有限公司<br>
+  Made with ❤️ by 方結租屋有限公司<br>
   <small>© 2026 Mark Rental Co., Ltd.</small>
 </p>

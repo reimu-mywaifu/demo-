@@ -1,5 +1,5 @@
 /*
- * data.js — 馬克租屋有限公司
+ * data.js — 方結租屋有限公司
  * All mock data for properties and blog posts.
  * Non-technical staff can edit this file to update website content.
  */
@@ -241,7 +241,7 @@ const POSTS = [
 ];
 
 const TESTIMONIALS = [
-  { name: "小芳", role: "台大研究生", avatar: "👩‍🎓", content: "馬克租屋的房東人真的超好！入住前就把房間整理得很乾淨，有問題隨時都能聯繫到，住了兩年感覺像家一樣溫馨。", rating: 5 },
-  { name: "阿凱", role: "新鮮人上班族", avatar: "👨‍💼", content: "第一次在台北租房就找到馬克租屋，租金透明沒有隱藏費用，而且看房流程很專業，完全不用擔心被坑。大推！", rating: 5 },
-  { name: "小雅", role: "師大大四學生", avatar: "👩‍🎨", content: "之前租過幾間品質都很差，後來朋友推薦馬克租屋，套房的採光超好，還有獨立洗衣機，真的回不去了～", rating: 5 }
+  { name: "小芳", role: "台大研究生", avatar: "👩‍🎓", content: "方結租屋的房東人真的超好！入住前就把房間整理得很乾淨，有問題隨時都能聯繫到，住了兩年感覺像家一樣溫馨。", rating: 5 },
+  { name: "阿凱", role: "新鮮人上班族", avatar: "👨‍💼", content: "第一次在台北租房就找到方結租屋，租金透明沒有隱藏費用，而且看房流程很專業，完全不用擔心被坑。大推！", rating: 5 },
+  { name: "小雅", role: "師大大四學生", avatar: "👩‍🎨", content: "之前租過幾間品質都很差，後來朋友推薦方結租屋，套房的採光超好，還有獨立洗衣機，真的回不去了～", rating: 5 }
 ];

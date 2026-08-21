@@ -31,7 +31,7 @@ function renderNavbar() {
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <div class="brand-icon">M</div>
-        <span>馬克租屋<small class="text-muted d-none d-md-inline ms-1" style="font-size:.7rem;font-weight:400">有限公司</small></span>
+        <span>方結租屋<small class="text-muted d-none d-md-inline ms-1" style="font-size:.7rem;font-weight:400">有限公司</small></span>
       </a>
 
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@ function renderNavbar() {
         <div class="offcanvas-header">
           <a class="navbar-brand" href="index.html">
             <div class="brand-icon">M</div>
-            <span>馬克租屋</span>
+            <span>方結租屋</span>
           </a>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
@@ -81,7 +81,7 @@ function renderFooter() {
         <div class="col-lg-3 col-md-6">
           <div class="d-flex align-items-center gap-2 mb-3">
             <div class="brand-icon">M</div>
-            <span class="fw-bold fs-5 text-white">馬克租屋</span>
+            <span class="fw-bold fs-5 text-white">方結租屋</span>
           </div>
           <p class="small" style="color:var(--m-tea-light)">
             專為學生與小資族打造的溫馨租屋平台。<br>
@@ -129,7 +129,7 @@ function renderFooter() {
     </div>
     <div class="footer-bottom">
       <div class="container d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2">
-        <span>© 2026 馬克租屋有限公司 Mark Rental Co., Ltd. All rights reserved.</span>
+        <span>© 2026 方結租屋有限公司 Mark Rental Co., Ltd. All rights reserved.</span>
         <span>Made with <i class="bi bi-heart-fill" style="color:var(--m-pink)"></i> in Taipei</span>
       </div>
     </div>
