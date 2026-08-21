@@ -2,7 +2,7 @@
 
 > 🏠 專為學生與小資族打造的溫馨租屋平台  
 > **Live Demo**: 直接用瀏覽器開啟 `index.html` 即可瀏覽
-
+> [網站連結](https://reimu-mywaifu.github.io/demo-/)
 ---
 
 ## 📋 目錄
